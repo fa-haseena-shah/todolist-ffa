@@ -1,2 +1,4 @@
 # todolist-ffa
-A passion project done to improve JavaScript skills which I am currently self-learning.  ✦ Project inspired by Stella, a character from the film, Five Feet Apart, who religiously made to-do lists.
+A passion project done to improve JavaScript skills which I am currently self-learning.  
+
+✦ Instead of creating a regular to-do list to practice JS, I drew inspiration from _Stella_, a character from the film, _Five Feet Apart (ffa)_, who religiously made to-do lists.
