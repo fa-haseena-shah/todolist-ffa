@@ -1,0 +1,233 @@
+@font-face {
+  font-family: lazy_dog;
+  src: url(assets/lazy_dog.ttf);
+}
+
+:root {
+    --bg:                #363152;
+    --card-bg:           #F4EEE2;
+    --card-shadow:       rgba(0, 0, 0, 0.35);
+    --line:              #b6ac94;
+    --text-dark:         #1a1a1a;
+    --input-placeholder: #aaa79a;
+    --font:              'lazy_dog', cursive;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: var(--font);
+    gap: 0;
+    overflow-x: hidden;
+}
+
+.character {
+    width: 220px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    position: relative;
+    z-index: 1;
+}
+
+.character img {
+    width: 100%;
+    display: block;
+}
+
+.task-section {
+    background-image: url('assets/paper-texture.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-blend-mode: multiply;
+
+    width: 520px;
+    min-height: 640px;
+    background-color: var(--card-bg);
+    border-radius: 35px 35px 0px 0px;
+    box-shadow: 0 8px 40px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    padding: 44px 0px 48px 0px;
+    position: relative;
+    z-index: 2;
+    align-self: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--line);
+    pointer-events: none;
+}
+
+header h1 {
+    font-family: var(--font);
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+.all-tasks {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* ── Input ── */
+.input-item {
+    font-family: var(--font);
+    font-size: 1.45rem;
+    color: var(--text-dark);
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--line);
+    padding: 10px 48px 10px 64px;
+    width: 100%;
+    outline: none;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+.input-item::placeholder {
+    color: var(--input-placeholder);
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    counter-reset: task-counter;
+    font-size: 1.4rem;
+}
+
+#taskList li {
+    counter-increment: task-counter;
+    display: flex;
+    align-items: center;
+    padding: 10px 48px 10px 48px; 
+    border-bottom: 1.5px solid var(--line);
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    gap: 8px;
+}
+
+#taskList li::before {
+    content: counter(task-counter) "  ";
+    color: var(--text-dark);
+    min-width: 24px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.task-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 12px;
+    font-size: 1.4rem;
+}
+
+.task-line label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    outline: none;
+    font-family: var(--font);
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.checked {
+  text-decoration:line-through;
+  color: var(--text-dark);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none; 
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Delete button ── */
+.delete-btn {
+    background: none;
+    border: none;
+    font-family: var(--font);
+    color: var(--input-placeholder);
+    cursor: pointer;
+    padding: 0 10px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+#taskList li:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    color: #a05050;
+}
+
+.banner {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.banner p {
+    font-size: 1rem;
+    color: var(--bg);
+    letter-spacing: 0.05em;
+    padding-bottom: 100px;
+    white-space: nowrap;
+}
+
+.banner-line {
+    width: 40%;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .character { display: none; }
+    .task-section { width: 92vw; padding: 32px 28px; }
+}
+
+
+
+
